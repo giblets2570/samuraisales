@@ -58,6 +58,9 @@
         } 
         $conn->close();
     } 
+    else if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    	$thankyou = "There's something wrong!";
+    }
 
 ?>
 
