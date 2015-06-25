@@ -169,7 +169,7 @@
 				</div>
 				  
 				<div class="form-wrap">			  
-					  <form method="POST">
+					  <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 						  <div class="form-group">
 						    <label for="inputName" class="control-label">Name</label>
 						      <input type="text" class="form-control" id="inputName" name="inputName" placeholder="">
