@@ -40,7 +40,7 @@
 	        $months = str_replace("'","",$_POST['inputMonths']);
 
             $sql = "INSERT INTO signups (id, name, email, phone, availability ,months, CV_url, timeCreated)
-            VALUES (NULL, '$name', '$email','$phone','$availability','$months','$CV_url',NULL)";
+            VALUES (NULL, '$name', '$email','$phone','$availability','$months','$upload_url',NULL)";
 
             if ($conn->query($sql)) {
                 // echo "New record created successfully<br>";
@@ -104,8 +104,6 @@
   </head>
   <body>
     <div class="container-fluid">
-	   
-	  <?php echo $thankyou;?>
 	    
 	  <div class="row r1-custom">
 	  	<div class="col-sm-6">
@@ -169,7 +167,8 @@
 				  	</p>
 				</div>
 				  
-				<div class="form-wrap">			  
+				<div class="form-wrap">		
+						<?php echo $thankyou;?>	  
 					  <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 						  <div class="form-group">
 						    <label for="inputName" class="control-label">Name</label>
