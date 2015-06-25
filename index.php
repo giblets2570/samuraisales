@@ -187,7 +187,7 @@
 						  		
 						  <div class="form-group">
 						    <label for="inputAvailability" id="inputAvailability" name="inputAvailability" class="control-label">How many hours can you work each week?</label>
-							  <select class="form-control">
+							  <select class="form-control" id="inputAvailability" name="inputAvailability">
 								  <option>5-10 hours</option>
 								  <option>10-20 hours</option>
 								  <option>20-30 hours</option>
