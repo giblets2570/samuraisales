@@ -13,7 +13,7 @@
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-   		$filename  = basename($_FILES['file']['name']);
+   		$filename  = $_FILES['file']['name'];
    		$extension = pathinfo($filename, PATHINFO_EXTENSION);
    		$today = date("F j, Y, g:i a");
    		$unique = $today.$filename;
