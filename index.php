@@ -5,7 +5,7 @@
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
     $thankyou = "";
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit'] && isset($_FILES['CVFile']) && $_FILES['CVFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['CVFile']['tmp_name'])) {
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['CVFile']) && $_FILES['CVFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['CVFile']['tmp_name'])) {
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
