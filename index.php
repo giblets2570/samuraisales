@@ -34,13 +34,13 @@
             
             $thankyou = $thankyou. " Yay :) ".$upload_url;
 
-			$name = $_POST['inputName'];
-	        $email = $_POST['inputEmail'];
-	        $phone = $_POST['inputPhone'];
-	        $availability = $_POST['inputAvailability'];
-	        $months = $_POST['inputMonths'];
+			$name = str_replace("'","",$_POST['inputName']);
+	        $email = str_replace("'","",$_POST['inputEmail']);
+	        $phone = str_replace("'","",$_POST['inputPhone']);
+	        $availability = str_replace("'","",$_POST['inputAvailability']);
+	        $months = str_replace("'","",$_POST['inputMonths']);
 
-            $sql = "INSERT INTO signups (id, name, email, phone, availability,months,CV_url,timeCreated)
+            $sql = "INSERT INTO signups (id, name, email, phone, availabilit  ,months, CV_url, timeCreated)
             VALUES (NULL, '$name', '$email','$phone','$availability','$months','$CV_url',NULL)";
 
             if ($conn->query($sql)) {
