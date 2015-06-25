@@ -160,7 +160,7 @@
 				</div>
 				  
 				<div class="form-wrap">			  
-					  <form>
+					  <form method="POST">
 						  <div class="form-group">
 						    <label for="inputName" class="control-label">Name</label>
 						      <input type="text" class="form-control" id="inputName" name="inputName" placeholder="">
