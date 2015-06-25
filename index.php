@@ -32,7 +32,7 @@
             $upload = $s3->upload($bucket, $_FILES['CVFile']['name'], fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
             $upload_url = $upload->get('ObjectURL');
             
-            $thankyou = "Yay :) ".$upload_url;
+            $thankyou = $thankyou. " Yay :) ".$upload_url;
 
 			$name = $_POST['inputName'];
 	        $email = $_POST['inputEmail'];
