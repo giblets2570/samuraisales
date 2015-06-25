@@ -18,6 +18,7 @@
 
         // Check connection
         if ($conn->connect_error) {
+        	$thankyou = "Connection failed: " . $conn->connect_error;
            die("Connection failed: " . $conn->connect_error);
         }
         try {
@@ -49,7 +50,7 @@
                 mail('hello@yakhub.co.uk', 'My Subject', $message);
             }
             else{
-                echo $conn->error;
+            	$thankyou = $conn->error;
             }
 
         } catch(Exception $e) { 
@@ -95,7 +96,8 @@
   </head>
   <body>
     <div class="container-fluid">
-	    
+	   
+	  <?php echo $thankyou;?>
 	    
 	  <div class="row r1-custom">
 	  	<div class="col-sm-6">
