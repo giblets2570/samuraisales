@@ -55,9 +55,9 @@
         } catch(Exception $e) { 
             $thankyou = "Error :(";
         } 
+        $conn->close();
     } 
 
-    $conn->close();
 ?>
 
 <!DOCTYPE html>
