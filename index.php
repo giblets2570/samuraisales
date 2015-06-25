@@ -18,11 +18,13 @@
         $password = $url["pass"];
         $db = substr($url["path"], 1);
 
+        $thankyou = $thankyou." ".$server. " " .$username. " " .$password." ".$db." ";
+
         $conn = new mysqli($server, $username, $password, $db);
 
         // Check connection
         if ($conn->connect_error) {
-        	$thankyou = "Connection failed: " . $conn->connect_error;
+        	$thankyou = $thankyou."Connection failed: " . $conn->connect_error;
            die("Connection failed: " . $conn->connect_error);
         }
         try {
@@ -54,7 +56,7 @@
                 mail('hello@yakhub.co.uk', 'My Subject', $message);
             }
             else{
-            	$thankyou = $conn->error;
+            	$thankyou = $thankyou.$conn->error;
             }
 
         } catch(Exception $e) { 
