@@ -5,6 +5,16 @@
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
     $thankyou = "";
 
+    function generateRandomString($length = 10) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
+
     // if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // 	echo "<pre>"; print_r($_POST) ;  echo "</pre>";	
     // 	echo "<pre>"; print_r($_FILES) ;  echo "</pre>";
@@ -15,10 +25,10 @@
 
    		$filename  = $_FILES['file']['name'];
    		$extension = pathinfo($filename, PATHINFO_EXTENSION);
-   		$today = date("F j, Y, g:i a");
-   		$unique = $today.$filename;
+   		// $today = date($DATE_ATOM);
+   		// $unique = $today.$filename;
 
-		$new       = md5($unique).'.'.$extension;
+		$new       = md5(generateRandomString());
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
