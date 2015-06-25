@@ -6,7 +6,8 @@
     $thankyou = "";
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    	echo "<pre>"; print_r($_POST) ;  echo "</pre>";
+    	echo "<pre>"; print_r($_POST) ;  echo "</pre>";	
+    	echo "<pre>"; print_r($_FILES) ;  echo "</pre>";
     }
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['CVFile']) && $_FILES['CVFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['CVFile']['tmp_name'])) {
         // FIXME: add more validation, e.g. using ext/fileinfo
