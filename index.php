@@ -13,6 +13,12 @@
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
+   		$filename  = basename($_FILES['file']['name']);
+   		$extension = pathinfo($filename, PATHINFO_EXTENSION);
+   		$today = date("F j, Y, g:i a");
+   		$unique = $today.$filename;
+
+		$new       = md5($unique).'.'.$extension;
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
@@ -29,7 +35,8 @@
         }
         try {
             // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-            $upload = $s3->upload($bucket, $_FILES['CVFile']['name'], fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
+            // $upload = $s3->upload($bucket, $_FILES['CVFile']['name'], fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
+            $upload = $s3->upload($bucket, $new, fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
             $upload_url = $upload->get('ObjectURL');
             
 
