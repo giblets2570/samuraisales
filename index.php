@@ -13,7 +13,7 @@ $thankyou = "";
             $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             $url = $upload->get('ObjectURL');
             
-            $thankyou = "Yay :) " + $url;
+            $thankyou = "Yay :) ".$url;
 
         } catch(Exception $e) { 
             $thankyou = "Error :(";
