@@ -77,7 +77,7 @@
 
                 $message = new SendGrid\Email();
 
-				$message->addTo('tomkeohanemurray@gmail,com')->
+				$message->addTo('tomkeohanemurray@gmail.com')->
 				          setFrom('signup@samuraisales.com')->
 				          setSubject('Samurai sales signup')->
 				          setText($emailText)->
