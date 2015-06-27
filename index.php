@@ -66,7 +66,7 @@
                 // echo "New record created successfully<br>";
             	$thankyou = "Thanks for submitting!";
                 // The message
-                $emailText = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$CV_url'"."\r\n"."Hours: '$num_hours'"."\r\n"."availability: '$availability'"."\r\n"."Phone: '$phone'"."\r\n";
+                $emailText = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$upload_url'"."\r\n"."Availability: '$availability'"."\r\n"."Months: '$months'"."\r\n"."Phone: '$phone'"."\r\n";
 
                 // In case any of our lines are larger than 70 characters, we should use wordwrap()
                 $emailText = wordwrap($emailText, 70, "\r\n");
@@ -82,6 +82,7 @@
 				          setSubject('Samurai sales signup')->
 				          setText($emailText)->
 				          setHtml('<strong>'.$emailText.'</strong>');
+
 				$response = $sendgrid->send($message);
 
             }
