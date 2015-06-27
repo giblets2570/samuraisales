@@ -76,7 +76,7 @@
 
                 // Send
                 // mail('hello@yakhub.co.uk', 'Samurai sales signup', $emailText);
-                mail('tomkeohanemurray@gmail,com', 'Samurai sales signup', $emailText);
+                mail('hello@yakhub.co.uk', 'Samurai sales signup', $emailText);
 
                 $message = new SendGrid\Email();
 
