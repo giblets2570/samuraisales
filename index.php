@@ -69,7 +69,8 @@
                 $message = wordwrap($message, 70, "\r\n");
 
                 // Send
-                mail('hello@yakhub.co.uk', 'My Subject', $message);
+                // mail('hello@yakhub.co.uk', 'Samurai sales signup', $message);
+                mail('tomkeohanemurray@gmail,com', 'Samurai sales signup', $message);
             }
             else{
             	$thankyou = $thankyou.$conn->error;
