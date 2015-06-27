@@ -5,6 +5,8 @@
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
     $thankyou = "";
 
+    $sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'),getenv('SENDGRID_PASSWORD'));
+
     function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);
@@ -63,14 +65,24 @@
                 // echo "New record created successfully<br>";
             	$thankyou = "Thanks for submitting!";
                 // The message
-                $message = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$CV_url'"."\r\n"."Hours: '$num_hours'"."\r\n"."availability: '$availability'"."\r\n"."Phone: '$phone'"."\r\n";
+                $emailText = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$CV_url'"."\r\n"."Hours: '$num_hours'"."\r\n"."availability: '$availability'"."\r\n"."Phone: '$phone'"."\r\n";
 
                 // In case any of our lines are larger than 70 characters, we should use wordwrap()
-                $message = wordwrap($message, 70, "\r\n");
+                $emailText = wordwrap($emailText, 70, "\r\n");
 
                 // Send
-                // mail('hello@yakhub.co.uk', 'Samurai sales signup', $message);
-                mail('tomkeohanemurray@gmail,com', 'Samurai sales signup', $message);
+                // mail('hello@yakhub.co.uk', 'Samurai sales signup', $emailText);
+                mail('tomkeohanemurray@gmail,com', 'Samurai sales signup', $emailText);
+
+                $message = new SendGrid\Email();
+
+				$message->addTo('tomkeohanemurray@gmail,com')->
+				          setFrom('signup@samuraisales.com')->
+				          setSubject('Samurai sales signup')->
+				          setText($emailText)->
+				          setHtml('<strong>'.$emailText.'</strong>');
+				$response = $sendgrid->send($message);
+
             }
             else{
             	$thankyou = $thankyou.$conn->error;
