@@ -19,7 +19,7 @@
 	}
 
     // if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // 	echo "<pre>"; print_r($_POST) ;  echo "</pre>";	
+    // 	echo "<pre>"; print_r($_POST) ;  echo "</pre>";
     // 	echo "<pre>"; print_r($_FILES) ;  echo "</pre>";
     // }
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -31,7 +31,7 @@
    		// $today = date($DATE_ATOM);
    		// $unique = $today.$filename;
 
-		$new       = md5(generateRandomString());
+		$new       = md5(generateRandomString()).$extension;
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
@@ -54,7 +54,6 @@
 	            $upload = $s3->upload($bucket, $new, fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
 	            $upload_url = $upload->get('ObjectURL');
 	        }
-            
 
 			$name = str_replace("'","",$_POST['inputName']);
 	        $email = str_replace("'","",$_POST['inputEmail']);
