@@ -8,7 +8,7 @@
 
     $sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'),getenv('SENDGRID_PASSWORD'));
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 5) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
@@ -33,7 +33,7 @@
    		// $today = date($DATE_ATOM);
    		// $unique = $today.$filename;
 
-		$new       = md5(generateRandomString()).$filename;
+		$new       = generateRandomString().$filename;
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
