@@ -8,7 +8,7 @@
 
     $sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'),getenv('SENDGRID_PASSWORD'));
 
-    function generateRandomString($length = 5) {
+    function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
@@ -26,7 +26,7 @@
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-   		$filename  = $_FILES['file']['name'];
+   		$filename  = $_FILES['file']['tmp_name'];
    		// $pos = strpos($filename, ".");
    		// $extension = substr($filename, $pos);
    		// $extension = pathinfo($filename, PATHINFO_EXTENSION);
