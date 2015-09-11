@@ -26,14 +26,14 @@
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-   		$filename  = $_FILES["CVFile"]["name"]
+   		$filename  = $_FILES["CVFile"]["name"];
    		// $pos = strpos($filename, ".");
    		// $extension = substr($filename, $pos);
    		// $extension = pathinfo($filename, PATHINFO_EXTENSION);
    		// $today = date($DATE_ATOM);
    		// $unique = $today.$filename;
 
-		$new       = generateRandomString().$filename;
+		$new = generateRandomString().".".$filename;
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
