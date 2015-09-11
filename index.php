@@ -26,7 +26,7 @@
         // FIXME: add more validation, e.g. using ext/fileinfo
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-   		$filename  = $_FILES['file']['tmp_name'];
+   		$filename  = $_FILES["CVFile"]["name"]
    		// $pos = strpos($filename, ".");
    		// $extension = substr($filename, $pos);
    		// $extension = pathinfo($filename, PATHINFO_EXTENSION);
