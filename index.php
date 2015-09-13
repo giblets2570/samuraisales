@@ -33,7 +33,7 @@
    		// $today = date($DATE_ATOM);
    		// $unique = $today.$filename;
 
-		$new = generateRandomString().".".$filename;
+		$new = generateRandomString()."-".$filename;
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
@@ -51,18 +51,19 @@
         try {
             // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
             // $upload = $s3->upload($bucket, $_FILES['CVFile']['name'], fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
+            $name = str_replace("'","",$_POST['inputName']);
+			$new = str_replace(".","",str_replace(" ", "-", $name))."-".$new;
+	        $email = str_replace("'","",$_POST['inputEmail']);
+	        $phone = str_replace("'","",$_POST['inputPhone']);
+	        $availability = str_replace("'","",$_POST['inputAvailability']);
+	        $months = str_replace("'","",$_POST['inputMonths']);
+
         	$upload_url = "";
             if(isset($_FILES['CVFile']) && $_FILES['CVFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['CVFile']['tmp_name'])){
 	            $upload = $s3->upload($bucket, $new, fopen($_FILES['CVFile']['tmp_name'], 'rb'), 'public-read');
 	            $upload_url = $upload->get('ObjectURL');
 	        }
 
-			$name = str_replace("'","",$_POST['inputName']);
-			$new = str_replace(".","",str_replace(" ", "-", $name)).$new;
-	        $email = str_replace("'","",$_POST['inputEmail']);
-	        $phone = str_replace("'","",$_POST['inputPhone']);
-	        $availability = str_replace("'","",$_POST['inputAvailability']);
-	        $months = str_replace("'","",$_POST['inputMonths']);
 
             $sql = "INSERT INTO signups (id, name, email, phone, availability ,months, CV_url, timeCreated)
             VALUES (NULL, '$name', '$email','$phone','$availability','$months','$upload_url',NULL)";
