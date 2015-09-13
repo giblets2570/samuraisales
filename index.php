@@ -72,7 +72,7 @@
                 // echo "New record created successfully<br>";
             	$thankyou = "Thanks for submitting!";
                 // The message
-                $emailText = "Name: '$name'"." "."\r\n"."Email: '$email'"." "."\r\n"."CV: '$upload_url'"." "."\r\n"."Availability: '$availability'"." "."\r\n"."Months: '$months'"." "."\r\n"."Phone: '$phone'"." "."\r\n";
+                $emailText = "Name: '$name'"." "."\r\n"."Email: '$email'"." "."\r\n"."CV: $upload_url"." "."\r\n"."Availability: '$availability'"." "."\r\n"."Months: '$months'"." "."\r\n"."Phone: '$phone'"." "."\r\n";
 
                 // In case any of our lines are larger than 70 characters, we should use wordwrap()
                 $emailText = wordwrap($emailText, 70, "\r\n");
