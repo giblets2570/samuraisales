@@ -8,7 +8,7 @@
 
     $sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'),getenv('SENDGRID_PASSWORD'));
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 5) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
@@ -58,6 +58,7 @@
 	        }
 
 			$name = str_replace("'","",$_POST['inputName']);
+			$new = str_replace(".","",str_replace(" ", "-", $name)).$new;
 	        $email = str_replace("'","",$_POST['inputEmail']);
 	        $phone = str_replace("'","",$_POST['inputPhone']);
 	        $availability = str_replace("'","",$_POST['inputAvailability']);
@@ -70,7 +71,7 @@
                 // echo "New record created successfully<br>";
             	$thankyou = "Thanks for submitting!";
                 // The message
-                $emailText = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$upload_url'"."\r\n"."Availability: '$availability'"."\r\n"."Months: '$months'"."\r\n"."Phone: '$phone'"."\r\n";
+                $emailText = "Name: '$name'"."\r\n"."Email: '$email'"."\r\n"."CV: '$upload_url'"." "."\r\n"."Availability: '$availability'"."\r\n"."Months: '$months'"."\r\n"."Phone: '$phone'"."\r\n";
 
                 // In case any of our lines are larger than 70 characters, we should use wordwrap()
                 $emailText = wordwrap($emailText, 70, "\r\n");
