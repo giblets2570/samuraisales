@@ -1,0 +1,1 @@
+MONGOLAB_URI=mongodb://heroku_f68x8xfs:s1epv9c41750m0h5tmlti2ctru@ds055782.mongolab.com:55782/heroku_f68x8xfs AWS_ACCESS_KEY_ID=AKIAIZQLXALH5VG6DIQA AWS_SECRET_ACCESS_KEY=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 S3_BUCKET=salessamurai nodemon server.js
