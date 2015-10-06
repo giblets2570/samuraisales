@@ -4,6 +4,7 @@
   "dependencies": {
     "aws-sdk": "^2.2.6",
     "body-parser": "^1.14.1",
+    "busboy": "^0.2.11",
     "ejs": "^2.3.4",
     "express": "^3.x.x",
     "mailcomposer": "^2.0.0",
