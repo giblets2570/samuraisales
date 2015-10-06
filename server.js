@@ -5,10 +5,11 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose       = require('mongoose');
+// var mongoose       = require('mongoose');
 var AWS 		   = require('aws-sdk');
 var nodemailer     = require('nodemailer');
-var multer  	   = require('multer')
+var multer  	   = require('multer');
+var fs 			   = require("fs");
 // configuration ===========================================
 var awsURL = "https://s3-eu-west-1.amazonaws.com/salessamurai/";
 var done=false;
@@ -19,19 +20,20 @@ app.set('view engine', 'ejs');
 /*Configure the multer.*/
 
 app.use(multer({ 
+	// dest: 'uploads/',
 rename: function (fieldname, filename) {
-    return filename+Date.now();
+	var re = / /gi;
+    return filename.replace(re, "-")+Date.now();
 },
 onFileUploadStart: function (file) {
   console.log(file.originalname + ' is starting ...')
+  // done=false;
 },
 onFileUploadComplete: function (file) {
   console.log(file.fieldname + ' uploaded to  ' + file.path)
   done=true;
 }
 }));
-
-// var Signup   = require('./app/models/signup.js');
 
 var s3 = new AWS.S3();
 var bucket = process.env.S3_BUCKET;
@@ -46,6 +48,7 @@ var transporter = nodemailer.createTransport({
 console.log('SMTP Configured');
 
 // config files
+
 // var db = require('./config/db');
 
 // set our port
