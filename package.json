@@ -6,6 +6,7 @@
     "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "express": "^3.x.x",
+    "mailcomposer": "^2.0.0",
     "method-override": "^2.3.5",
     "multer": "~0.1.6",
     "nodemailer": "^1.7.0"
