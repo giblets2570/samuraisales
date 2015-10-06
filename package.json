@@ -2,14 +2,12 @@
   "name": "starter-node-angular",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.4.3",
-    "ee-first": "^1.1.1",
-    "ejs": "^1.0.0",
-    "express": "~4.10.2",
-    "method-override": "^2.0.2",
-    "mongoose": "^3.8.35",
-    "ms": "^0.7.1",
+    "aws-sdk": "^2.2.6",
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
     "multer": "~0.1.6",
-    "nodemailer": "latest"
+    "nodemailer": "^1.7.0"
   }
 }
