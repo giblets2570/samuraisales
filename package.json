@@ -7,7 +7,6 @@
     "ejs": "^1.0.0",
     "express": "~4.10.2",
     "method-override": "^2.0.2",
-    "mongoose": "^3.8.35",
     "multer": "~0.1.6",
     "nodemailer": "latest"
   }
