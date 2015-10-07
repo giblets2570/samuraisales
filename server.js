@@ -15,7 +15,8 @@ var awsURL = "https://s3-eu-west-1.amazonaws.com/salessamurai/";
 var done=false;
 
 // set the view engine to ejs
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 /*Configure the multer.*/
 

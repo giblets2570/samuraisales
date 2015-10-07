@@ -6,6 +6,7 @@
     "body-parser": "^1.4.3",
     "ejs": "^1.0.0",
     "express": "~4.10.2",
+    "jade": "^1.11.0",
     "method-override": "^2.0.2",
     "multer": "~0.1.6",
     "nodemailer": "latest"
